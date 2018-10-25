@@ -8,8 +8,10 @@ import com.cloud.eureka.entity.User;
 import com.cloud.eureka.mapper.UserMapper;
 import com.cloud.eureka.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.attribute.standard.Media;
 import java.util.List;
 
 /**
@@ -26,17 +28,17 @@ public class UserController extends ApiController {
     @Autowired
     private UserMapper userMapper;
 
-    @GetMapping("/testPage")
+    @GetMapping(value = "/testPage",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public IPage<User> testPage() {
         return userService.page(new Page<>(0, 12), null);
     }
 
-    @GetMapping("/getUser")
+    @GetMapping(value = "/getUser",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public User getById() {
         return userMapper.selectById(1);
     }
 
-    @GetMapping("/list")
+    @GetMapping(value = "/list",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<User> list() {
         return userMapper.selectList(new QueryWrapper<User>()
                 .lambda().eq(User::getName, "admin")
@@ -45,7 +47,7 @@ public class UserController extends ApiController {
 
     }
 
-    @PostMapping("/save")
+    @PostMapping(value = "/save",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Boolean save(@RequestBody User user) {
         return userService.save(user);
     }

@@ -1,18 +1,16 @@
 server:
-  port: 8080
-
+  port: 8081
+# 8081注册到8080端口服务
 eureka:
   instance:
     hostname: localhost
   client:
-    registerWithEureka: false
-    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://localhost:8080/eureka/
 
 spring:
   application:
-    name: eurka-server
+    name: eureka-server-1
   datasource:
     hikari:
       username: root
@@ -49,3 +47,4 @@ mybatis-plus:
     cache-enabled: false
     #配置JdbcTypeForNull, oracle数据库必须配置
     jdbc-type-for-null: 'null'
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

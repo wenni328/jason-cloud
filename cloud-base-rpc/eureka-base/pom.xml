@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.cloud.eureka</groupId>
-    <artifactId>eureka-server</artifactId>
+    <groupId>com.springcloud</groupId>
+    <artifactId>eureka-base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>eureka-server</name>
+    <name>eureka-base</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -27,46 +27,20 @@
 
     <dependencies>
         <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-    </dependency>
-        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.0-RC2</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
-        <!-- 模板引擎 -->
         <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-engine-core</artifactId>
-            <version>2.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- springboot整合mybatis（核心就这一个） -->
-        <!-- 注意顺序，这个一定要放在最下面 -->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.2</version>
-        </dependency>
     </dependencies>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -78,19 +52,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <!--使用内部tomcat-->
-    <profiles>
-        <profile>
-            <id>embed-tomcat</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                    <scope>compile</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
     <build>
         <plugins>
             <plugin>
