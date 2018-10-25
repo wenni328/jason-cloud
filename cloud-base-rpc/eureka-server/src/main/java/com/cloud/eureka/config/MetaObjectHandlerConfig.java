@@ -1,6 +1,7 @@
 package com.cloud.eureka.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
@@ -10,12 +11,13 @@ import org.springframework.stereotype.Component;
  * @Description:  公共字段的插入与更新操作都可以设置
  */
 @Component
+@Slf4j
 public class MetaObjectHandlerConfig implements MetaObjectHandler {
 
 
     @Override
     public void insertFill(MetaObject metaObject) {
-        System.out.println("插入方法实体填充");
+        log.info("插入方法实体填充");
         setFieldValByName("salt", "md5", metaObject);
     }
 
