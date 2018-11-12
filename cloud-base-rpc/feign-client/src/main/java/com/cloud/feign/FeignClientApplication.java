@@ -11,6 +11,10 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
+//feign开启断路器
+//@EnableHystrixDashboard
+//ribbon开启断路器
+//@EnableHystrix
 public class FeignClientApplication {
 
     public static void main(String[] args) {
