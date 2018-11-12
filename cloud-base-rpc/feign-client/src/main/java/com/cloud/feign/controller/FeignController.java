@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author: xieyong
  * @date: 2018/10/23 15:39
@@ -19,7 +21,7 @@ public class FeignController {
     private AuthFeignClient feignClient;
 
     @GetMapping(value = "/getUserInfo")
-    public Object getUserInfo(){
+    public List<User> getUserInfo(){
         return feignClient.getuserinfo();
     }
 }

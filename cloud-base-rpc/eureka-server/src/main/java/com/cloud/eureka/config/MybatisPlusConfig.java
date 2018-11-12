@@ -2,6 +2,7 @@ package com.cloud.eureka.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @MapperScan("com.cloud.eureka.mapper*")
+@Slf4j
 public class MybatisPlusConfig {
 
     /**
@@ -27,6 +29,8 @@ public class MybatisPlusConfig {
 
     /**
      * mybatis-plus SQL执行效率插件【生产环境可以关闭】
+     * Time：243 ms - ID：com.cloud.eureka.mapper.UserMapper.selectList
+     * Execute SQL：SELECT id,name,password,salt FROM user WHERE ( id BETWEEN 1 AND 20 )
      */
     @Bean
     public PerformanceInterceptor performanceInterceptor() {

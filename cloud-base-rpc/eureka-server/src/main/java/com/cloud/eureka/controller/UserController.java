@@ -41,10 +41,11 @@ public class UserController extends ApiController {
 
     @GetMapping(value = "/list",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<User> list() {
-        return userMapper.selectList(new QueryWrapper<User>()
-                .lambda().eq(User::getName, "admin")
-                .and(e -> e.like(User::getPassword, "adm"))
-                .and(e -> e.between(User::getId, "4", "20")));
+        return userMapper.selectList(new QueryWrapper<User>().lambda().and(e -> e.between(User::getId, 1, 20)));
+//        return userMapper.selectList(new QueryWrapper<User>()
+//                .lambda().eq(User::getName, "admin")
+//                .and(e -> e.like(User::getPassword, "adm"))
+//                .and(e -> e.between(User::getId, "4", "20")));
     }
 
     @PostMapping(value = "/save",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
