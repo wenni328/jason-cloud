@@ -59,4 +59,4 @@ turbine:
 ```
 # 数据监控效果图
 
-![https://github.com/wenni328/jason-cloud/tree/cloud-base-rpc/cloud-base-rpc/spring-cloud-swagger-zuul/1.jpg]()
+![数据监控图](https://github.com/wenni328/jason-cloud/blob/cloud-base-rpc/cloud-base-rpc/spring-cloud-swagger-zuul/1.jpg)
