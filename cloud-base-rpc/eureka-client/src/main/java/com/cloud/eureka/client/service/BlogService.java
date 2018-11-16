@@ -28,8 +28,8 @@ public class BlogService {
 
     public Object hiService() {
         log.info("123");
-        //返回是String--之前是User，一直都出错
-        String json=restTemplate.getForObject("http://EUREKA-SERVER-1/plus/list",String.class);
+        //返回是String--之前是User，一直都出错server-mybatis-plus
+        String json=restTemplate.getForObject("http://SERVER-MYBATIS-PLUS/server/list",String.class);
         List<User> list=JSONObject.parseArray(json,User.class);
         for (User u:list) {
             log.info(JSONObject.toJSONString(u));

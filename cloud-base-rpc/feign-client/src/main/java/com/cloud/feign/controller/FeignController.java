@@ -15,7 +15,7 @@ import java.util.List;
  * @Description:
  */
 @RestController
-@RequestMapping("/feign")
+@RequestMapping("/feignclient")
 public class FeignController {
     @Autowired
     private AuthFeignClient feignClient;

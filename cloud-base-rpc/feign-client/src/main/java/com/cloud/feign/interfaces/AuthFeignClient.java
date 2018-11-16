@@ -14,9 +14,9 @@ import java.util.List;
  * @date: 2018/9/4 19:33
  * @Description:
  */
-@FeignClient("eureka-server-1")
+@FeignClient("server-mybatis-plus")
 public interface AuthFeignClient {
 
-    @GetMapping(value = "/plus/list",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/server/list",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     List<User> getuserinfo();
 }

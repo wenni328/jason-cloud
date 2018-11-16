@@ -1,6 +1,7 @@
 package com.cloud.eureka.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.ApiController;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -21,7 +22,7 @@ import java.util.List;
  * @Description:
  */
 @RestController
-@RequestMapping("/plus")
+@RequestMapping("/server")
 public class UserController extends ApiController {
 
     @Autowired
@@ -41,6 +42,11 @@ public class UserController extends ApiController {
 
     @GetMapping(value = "/list",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<User> list() {
+//        try {
+//            Thread.sleep(5000L);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return userMapper.selectList(new QueryWrapper<User>().lambda().and(e -> e.between(User::getId, 1, 20)));
 //        return userMapper.selectList(new QueryWrapper<User>()
 //                .lambda().eq(User::getName, "admin")
@@ -56,6 +62,13 @@ public class UserController extends ApiController {
     @PostMapping(value = "/page")
     public Page<UserModel>  page(@RequestBody ParamsModel paramsModel) {
         return userService.selectUserListPage(paramsModel.getName(),paramsModel.getCurr(),paramsModel.getNums());
+    }
+
+    @PostMapping(value = "/update", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Boolean update(@RequestBody User user) {
+        User u = new User();
+        u.setId(12L);
+        return userService.update(user, new UpdateWrapper<>(u));
     }
 
 }

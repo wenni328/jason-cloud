@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/eurekaclient")
 public class BlogClientController {
     @Autowired
     private BlogService blogService;
