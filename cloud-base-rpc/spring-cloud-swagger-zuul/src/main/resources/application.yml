@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: api-zuul
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+server:
+  port: 8085
+zuul:
+  routes:
+     # 命名随意
+     eureka-client:
+     # 前缀
+       path: /eureka/**
+     # 对应的服务名
+       service-id: eureka-client-blog
+     feign-client:
+       path: /feign/**
+       service-id: feign-consumer
+     server-mybatis:
+       path: /server/**
+       service-id: server-mybatis-plus
+  host:
+   # 每个主机初始连接数
+    max-per-route-connections: 50
+ribbon:
+# Zuul使用的默认是Apache的HTTP Client 这里是开启 Rest Client
+  restclient:
+    enabled: true
+swagger:
+  base-package: com.api.gateway
+
+# zuul.prefix 我们可以指定一个全局的前缀
+# strip-prefix: 是否将这个代理前缀去掉
+
