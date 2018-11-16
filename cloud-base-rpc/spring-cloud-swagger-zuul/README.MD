@@ -57,6 +57,21 @@ turbine:
 
 
 ```
-# 数据监控效果图
+# 效果图
 
 ![数据监控图](https://github.com/wenni328/jason-cloud/blob/cloud-base-rpc/cloud-base-rpc/spring-cloud-swagger-zuul/1.jpg)
+
+![数据监控图](https://github.com/wenni328/jason-cloud/blob/cloud-base-rpc/cloud-base-rpc/spring-cloud-swagger-zuul/2.png)
+
+
+![数据监控图](https://github.com/wenni328/jason-cloud/blob/cloud-base-rpc/cloud-base-rpc/spring-cloud-swagger-zuul/3.jpg)
+
+
+![数据监控图](https://github.com/wenni328/jason-cloud/blob/cloud-base-rpc/cloud-base-rpc/spring-cloud-swagger-zuul/4.jpg)
+
+![数据监控图](https://github.com/wenni328/jason-cloud/blob/cloud-base-rpc/cloud-base-rpc/spring-cloud-swagger-zuul/5.jpg)
+
+![数据监控图](https://github.com/wenni328/jason-cloud/blob/cloud-base-rpc/cloud-base-rpc/spring-cloud-swagger-zuul/6.jpg)
+
+
+![数据监控图](https://github.com/wenni328/jason-cloud/blob/cloud-base-rpc/cloud-base-rpc/spring-cloud-swagger-zuul/2.png)
