@@ -4,7 +4,7 @@
 
     <select id="selectPageList" resultType="com.cloud.eureka.entity.UserModel">
     SELECT u.name,u.id id,u.password,u.salt,b.* FROM `user` u
-LEFT JOIN blog b ON u.id=b.blog_id
+inner JOIN blog b ON u.id=b.blog_id
 AND u.`name` LIKE "%"#{name}"%"
 </select>
 
