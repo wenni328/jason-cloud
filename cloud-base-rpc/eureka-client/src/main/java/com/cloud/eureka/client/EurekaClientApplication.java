@@ -1,5 +1,6 @@
 package com.cloud.eureka.client;
 
+import com.spring4all.swagger.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -14,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 @RestController
+@EnableSwagger2Doc
 //@EnableHystrix
 public class EurekaClientApplication {
 
@@ -29,6 +31,8 @@ public class EurekaClientApplication {
     @Bean("restTemplatePlus")
     @LoadBalanced
     RestTemplate restTemplate() {
-        return new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
+        // restTemplate.setErrorHandler(new ThrowErrorHandler());
+        return restTemplate;
     }
 }

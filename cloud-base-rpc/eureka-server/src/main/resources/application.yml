@@ -10,7 +10,7 @@ eureka:
 
 spring:
   application:
-    name: eureka-server-1
+    name: server-mybatis-plus
   datasource:
     hikari:
       username: root
@@ -48,3 +48,5 @@ mybatis-plus:
     #配置JdbcTypeForNull, oracle数据库必须配置
     jdbc-type-for-null: 'null'
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+swagger:
+  base-package: com.cloud.eureka.controller
