@@ -1,0 +1,15 @@
+server:
+  port: 8084
+  servlet:
+    path:
+
+spring:
+  application:
+    name: eureka-client-3
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+
+
