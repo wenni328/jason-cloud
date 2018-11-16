@@ -42,11 +42,6 @@ public class UserController extends ApiController {
 
     @GetMapping(value = "/list",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<User> list() {
-//        try {
-//            Thread.sleep(5000L);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         return userMapper.selectList(new QueryWrapper<User>().lambda().and(e -> e.between(User::getId, 1, 20)));
 //        return userMapper.selectList(new QueryWrapper<User>()
 //                .lambda().eq(User::getName, "admin")

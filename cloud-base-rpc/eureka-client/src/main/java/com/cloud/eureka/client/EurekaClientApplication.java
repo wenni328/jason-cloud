@@ -1,5 +1,6 @@
 package com.cloud.eureka.client;
 
+import com.cloud.eureka.client.handler.ThrowErrorHandler;
 import com.spring4all.swagger.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -32,7 +33,7 @@ public class EurekaClientApplication {
     @LoadBalanced
     RestTemplate restTemplate() {
         RestTemplate restTemplate = new RestTemplate();
-        // restTemplate.setErrorHandler(new ThrowErrorHandler());
+        restTemplate.setErrorHandler(new ThrowErrorHandler());
         return restTemplate;
     }
 }
