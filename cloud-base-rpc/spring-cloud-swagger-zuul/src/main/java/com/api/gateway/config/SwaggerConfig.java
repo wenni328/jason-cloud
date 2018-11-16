@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author: xieyong
  * @date: 2018/11/13 17:20
- * @Description:
+ * @Description: 这里需要结合配置的路由看才能知道怎么配置
  */
 @Configuration
 @Primary
