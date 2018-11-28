@@ -16,8 +16,9 @@
 *.iml
 *.ipr
 .mvn
-mvnw
 mvnw.cmd
+feign-client.iml
+mvnw
 
 ### NetBeans ###
 /nbproject/private/

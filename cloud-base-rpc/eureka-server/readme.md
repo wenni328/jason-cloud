@@ -1,0 +1,66 @@
+# 说明
+作为服务提供者，参与数据库底层操作，实际中，这个服务起码得提供两个
+以上的其他服务调用才会选择使用微服务。否则这样的微服务将没有任何意义。
+
+# 内置使用技术
+- mysql数据库
+- springboot版本2.0.4
+- 数据层使用mybatis-plus简化开发
+
+# 配置
+```yaml
+
+server:
+  port: 8081
+# 8081注册到8080端口服务
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+
+spring:
+  application:
+    name: server-mybatis-plus
+  datasource:
+    hikari:
+      username: root
+      password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/boot?useUnicode=true&amp;characterEncoding=utf8;allowMultiQueries=true&&useSSL=true
+
+mybatis-plus:
+  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.cloud.eureka.entity
+  global-config:
+    #mp2.3+ 全局表前缀 mp_
+    #table-prefix: mp_
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    #逻辑删除配置（下面3个配置）
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      #驼峰下划线转换
+      column-underline: true
+      #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      field-strategy: not_empty
+      #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      id-type: id_worker
+  configuration:
+    #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    #配置JdbcTypeForNull, oracle数据库必须配置
+    jdbc-type-for-null: 'null'
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+swagger:
+  base-package: com.cloud.eureka.controller
+
+```
