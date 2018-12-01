@@ -10,7 +10,9 @@ import com.cloud.eureka.entity.User;
 import com.cloud.eureka.entity.UserModel;
 import com.cloud.eureka.mapper.UserMapper;
 import com.cloud.eureka.service.impl.UserServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +25,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/server")
+@Slf4j
 public class UserController extends ApiController {
 
     @Autowired
@@ -32,7 +35,8 @@ public class UserController extends ApiController {
 
     @GetMapping(value = "/testPage",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public IPage<User> testPage() {
-        return userService.page(new Page<>(0, 12), null);
+        log.info("访问底层[testPage]接口,参数：{},{}",1,12);
+        return userService.page(new Page<>(1, 12), null);
     }
 
     @GetMapping(value = "/getUser",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -56,6 +60,7 @@ public class UserController extends ApiController {
 
     @PostMapping(value = "/page")
     public Page<UserModel>  page(@RequestBody ParamsModel paramsModel) {
+        log.info("访问底层[page]接口,参数：{}", com.alibaba.fastjson.JSONObject.toJSONString(paramsModel));
         return userService.selectUserListPage(paramsModel.getName(),paramsModel.getCurr(),paramsModel.getNums());
     }
 
